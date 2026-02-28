@@ -4,7 +4,7 @@ import time
 from config import API_MARK_KEY
 
 
-def extract_vedio_url_from_response(task_id, token=API_MARK_KEY, max_attempts=60):
+def extract_video_url_from_response(task_id, token=API_MARK_KEY, max_attempts=60):
     """
     轮询查询任务结果，提取视频URL
     
@@ -46,7 +46,7 @@ def extract_vedio_url_from_response(task_id, token=API_MARK_KEY, max_attempts=60
         
         if status == "completed":
             # 提取视频URL (videos[0].url[0]) - 修正字段名
-            videos = data.get("result", {}).get("videos", [])  # 修正：videos 不是 vedios
+            videos = data.get("result", {}).get("videos", [])  # 修正：videos 不是 videos
             
             if videos and len(videos) > 0:
                 video_urls = videos[0].get("url", [])

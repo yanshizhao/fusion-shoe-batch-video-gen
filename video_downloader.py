@@ -1,11 +1,11 @@
 import requests
 from pathlib import Path
-from config import VEDIO_SAVE_PATH
+from config import VIDEO_SAVE_PATH
 import os
 
 def download_video(url, filename, taskid): 
     """
-    下载视频文件到 VEDIO_SAVE_PATH 目录（异常安全版）
+    下载视频文件到 VIDEO_SAVE_PATH 目录（异常安全版）
     
     参数:
         url (str): 视频文件的URL
@@ -16,17 +16,17 @@ def download_video(url, filename, taskid):
         str or None: 成功返回完整保存路径，失败返回None
     """
     # 拼接完整的保存路径
-    full_save_path = Path(VEDIO_SAVE_PATH) / filename
+    full_save_path = Path(VIDEO_SAVE_PATH) / filename
     print(f"📋 任务{taskid}: 开始处理 - 文件名: {filename}, URL: {url}")
 
     try:
         # 1. 确保目标目录存在
-        Path(VEDIO_SAVE_PATH).mkdir(parents=True, exist_ok=True)
-        print(f"📁 目标目录: {VEDIO_SAVE_PATH}")
+        Path(VIDEO_SAVE_PATH).mkdir(parents=True, exist_ok=True)
+        print(f"📁 目标目录: {VIDEO_SAVE_PATH}")
 
         # 2. 检查目录是否可写
-        if not os.access(VEDIO_SAVE_PATH, os.W_OK):
-            print(f"❌ 任务{taskid}: 目录不可写 - {VEDIO_SAVE_PATH}")
+        if not os.access(VIDEO_SAVE_PATH, os.W_OK):
+            print(f"❌ 任务{taskid}: 目录不可写 - {VIDEO_SAVE_PATH}")
             return None
         
         # 3. 如果文件已存在，跳过下载（避免覆盖）

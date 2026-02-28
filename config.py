@@ -22,7 +22,7 @@ dashscope.base_http_api_url = 'https://dashscope.aliyuncs.com/api/v1'
 PRODUCT_IMAGE_FOLDER = r"请替换为你的本地文件夹目录" # 替换成你本地文件夹，例如：E:\product_image\branan_clear_result
 
 # 保存视频的文件夹
-VEDIO_SAVE_PATH = r"请替换为你的本地文件夹目录" # 替换成你本地文件夹，例如：E:\product_image\download_video
+VIDEO_SAVE_PATH = r"请替换为你的本地文件夹目录" # 替换成你本地文件夹，例如：E:\product_image\download_video
 
 # ===================== 业务参数配置 =====================
 # 每张图生成风格数量

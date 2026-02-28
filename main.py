@@ -21,7 +21,7 @@ def main():
                 
                 当前默认配置:
                 输入文件夹：{config.PRODUCT_IMAGE_FOLDER}
-                输出文件夹：{config.VEDIO_SAVE_PATH}
+                输出文件夹：{config.VIDEO_SAVE_PATH}
         """
     )
     
@@ -35,8 +35,8 @@ def main():
     parser.add_argument(
         "-o", "--output-folder", 
         type=str, 
-        default=config.VEDIO_SAVE_PATH, 
-        help=f"输出文件夹路径 (默认: {config.VEDIO_SAVE_PATH})"
+        default=config.VIDEO_SAVE_PATH, 
+        help=f"输出文件夹路径 (默认: {config.VIDEO_SAVE_PATH})"
     )
     
     args = parser.parse_args()
@@ -65,9 +65,9 @@ def main():
     * 确保其他模块通过 `from config import PRODUCT_IMAGE_FOLDER` 或 `config.PRODUCT_IMAGE_FOLDER`
     * 获取到的都是更新后的值"""
     config.PRODUCT_IMAGE_FOLDER = input_folder
-    config.VEDIO_SAVE_PATH = output_folder
+    config.VIDEO_SAVE_PATH = output_folder
 
-    log.print_log1(config.PRODUCT_IMAGE_FOLDER, config.VEDIO_SAVE_PATH)
+    log.print_log1(config.PRODUCT_IMAGE_FOLDER, config.VIDEO_SAVE_PATH)
 
     # ==================== 4. 业务逻辑 ====================
     
@@ -117,7 +117,7 @@ def main():
             task_id = task.get('task_id', 'Unknown')
             log.print_log5(img_path, style, task_id)
     
-    print(f"\n💾 结果已保存至：{config.VEDIO_SAVE_PATH}")
+    print(f"\n💾 结果已保存至：{config.VIDEO_SAVE_PATH}")
     print("=" * 60)
 
 

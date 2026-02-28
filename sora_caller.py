@@ -6,7 +6,7 @@ import json
 # 关闭SSL警告（解决证书问题）
 requests.packages.urllib3.disable_warnings()
 
-def generate_sora_vedio(prompt, duration=15, aspect_ratio="9:16", image_urls=None, token=API_MARK_KEY):
+def generate_sora_video(prompt, duration=15, aspect_ratio="9:16", image_urls=None, token=API_MARK_KEY):
 
     """调用Sora API生成视频，返回接口响应数据"""
 

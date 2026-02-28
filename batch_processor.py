@@ -1,11 +1,11 @@
 import os
 from tos_operations import upload_to_tos
-from sora_caller import generate_sora_vedio
-from config import GENERATE_COUNT, DURATION, ASPECT_RATIO,  API_MARK_KEY, VEDIO_SAVE_PATH, load_product_input_config
+from sora_caller import generate_sora_video
+from config import GENERATE_COUNT, DURATION, ASPECT_RATIO,  API_MARK_KEY, VIDEO_SAVE_PATH, load_product_input_config
 from prompt_generator_qwen_vl_max import call_qwen_vl_max_generator_prompts
 import uuid
-from response_parser import extract_vedio_url_from_response
-from vedio_downloader import download_video
+from response_parser import extract_video_url_from_response
+from video_downloader import download_video
 from pathlib import Path
 
 def get_all_image_files(folder_path):
@@ -49,7 +49,7 @@ def process_single_product_image(image_path, succ_task_ids):
 
             # 步骤4：调用apimart---Sora生成视频
             print(f"\n {image_path}-{i}：调用apimart---sora生成视频")
-            response_data = generate_sora_vedio(sora_prompts, DURATION, ASPECT_RATIO, [image_url], API_MARK_KEY)
+            response_data = generate_sora_video(sora_prompts, DURATION, ASPECT_RATIO, [image_url], API_MARK_KEY)
             print(f"\n=== {image_path}-{i} 调用Sora返回结果{response_data} ===")
 
             # 解析返回结果
@@ -63,8 +63,8 @@ def process_single_product_image(image_path, succ_task_ids):
                 print(f"✅ {image_path}-{i} 调用成功，任务ID：{task_id}")
 
                 #提取视频url
-                output_file = os.path.join(VEDIO_SAVE_PATH, f"{task_id}_vedio.mp4") 
-                video_data = extract_vedio_url_from_response(task_id)
+                output_file = os.path.join(VIDEO_SAVE_PATH, f"{task_id}_video.mp4") 
+                video_data = extract_video_url_from_response(task_id)
                 if isinstance(video_data, str):
                     # 如果是字符串，说明是直接的视频URL
                     #print(f"✅ 视频URL: {video_data}")
