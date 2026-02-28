@@ -1,0 +1,29 @@
+# --- 配置文件 ---
+#config.py
+*.env
+#product_user_input_config.json
+
+# --- Python 缓存 ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- 虚拟环境 ---
+venv/
+env/
+.venv/
+ENV/
+
+# --- 生成的视频和临时文件  ---
+*.mp4
+*.mov
+*.avi
+*.jpg
+*.png
+*.log
+
+# --- IDE 配置 ---
+.idea/
+.vscode/
+.DS_Store
